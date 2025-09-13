@@ -26,7 +26,7 @@ const projects=[
     {
         title: "Portfolio",
         img: portfolio_img,
-        link: "../portfolio",
+        link: "https://personal-portfolio-sal6.vercel.app/",
     },
     {
         title: "Rock-Paper-Scissor",
