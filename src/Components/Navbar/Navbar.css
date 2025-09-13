@@ -1,0 +1,138 @@
+/* Navbar base */
+.navbar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: space-between;
+  background: #000;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 20px 0;
+}
+
+.navbar-title {
+  margin-left: 20px;
+  font-size: 27px;
+  font-weight: bolder;
+  color: #ebebebaf;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+/* Desktop nav */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  list-style: none;
+  margin-right: 20px;
+  padding: 0 20px;
+}
+
+.nav-menu li {
+  position: relative;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.nav-menu li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #c4daf3, #eff3f2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-menu li:hover::after {
+  transform: scaleX(1);
+}
+
+.anchor-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hide hamburger + close by default (desktop view) */
+.navbar-hamburger,
+.navbar-close {
+  display: none;
+}
+/* .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1999;
+} */
+ /* Overlay background */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 999;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    position: fixed;
+    top: 0;
+    left: -100%; /* hidden */
+    width: 70vw;
+    height: 100vh;
+    background: #181818;
+    padding-top: 80px;
+    gap: 30px;
+    transition: left 0.3s ease-in-out;
+    z-index: 2000;
+  }
+
+  .nav-menu.open {
+    left: 0; /* slide in */
+  }
+
+  .navbar-hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 2100;
+  }
+
+  .navbar-close {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 2101;
+  }
+}
+
+/* Hide hamburger & close on desktop */
+@media (min-width: 769px) {
+  .navbar-hamburger,
+  .navbar-close,
+  .overlay {
+    display: none;
+  }
+}
+
